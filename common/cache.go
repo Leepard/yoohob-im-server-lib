@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/redis"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/redis"
 )
 
 // RedisCache redis缓存

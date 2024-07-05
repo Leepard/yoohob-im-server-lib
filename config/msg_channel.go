@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/common"
+	"github.com/Leepard/yoohob-im-server-lib/common"
 	"go.uber.org/zap"
 )
 

@@ -6,16 +6,16 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/config"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/module"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/log"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/register"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/wkhttp"
+	"github.com/Leepard/yoohob-im-server-lib/config"
+	"github.com/Leepard/yoohob-im-server-lib/module"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/log"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/register"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/wkhttp"
 	"github.com/judwhite/go-svc"
 	"github.com/unrolled/secure"
 )
 
-// Server唐僧叨叨server
+// Server yoohob server
 type Server struct {
 	r *wkhttp.WKHttp
 	log.TLog

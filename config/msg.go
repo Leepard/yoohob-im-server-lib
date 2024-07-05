@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/common"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/network"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/util"
+	"github.com/Leepard/yoohob-im-server-lib/common"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/network"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/util"
 	"github.com/sendgrid/rest"
 	"github.com/tidwall/gjson"
 	"go.uber.org/zap"

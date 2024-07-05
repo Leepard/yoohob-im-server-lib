@@ -1,4 +1,4 @@
-module github.com/TangSengDaoDao/TangSengDaoDaoServerLib
+module github.com/Leepard/yoohob-im-server-lib
 
 go 1.20
 

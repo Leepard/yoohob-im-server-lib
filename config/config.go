@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/util"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/util"
 	"github.com/spf13/cast"
 	"github.com/spf13/viper"
 	"go.uber.org/zap/zapcore"
@@ -36,6 +36,8 @@ const (
 	FileServiceSeaweedFS FileService = "seaweedFS"
 	// FileServiceMinio minio
 	FileServiceMinio FileService = "minio"
+	// FileServiceQiniu qiniu
+	FileServiceQiniu FileService = "qiniu"
 )
 
 func (u FileService) String() string {
@@ -133,6 +135,7 @@ type Config struct {
 	OSS         OSSConfig     // 阿里云oss配置
 	Minio       MinioConfig   // minio配置
 	Seaweed     SeaweedConfig // seaweedfs配置
+	Qiniu       QiniuConfig   // 七牛云配置
 
 	// ---------- 短信运营商 ----------
 	SMSCode                string // 模拟的短信验证码
@@ -270,8 +273,8 @@ func New() *Config {
 	cfg := &Config{
 		// ---------- 基础配置 ----------
 		Mode:                        ReleaseMode,
-		AppID:                       "tangsengdaodao",
-		AppName:                     "唐僧叨叨",
+		AppID:                       "yoohob",
+		AppName:                     "yoohob",
 		Addr:                        ":8090",
 		GRPCAddr:                    "0.0.0.0:6979",
 		PhoneSearchOff:              false,
@@ -305,7 +308,7 @@ func New() *Config {
 			RedisPass            string
 			AsynctaskRedisAddr   string
 		}{
-			MySQLAddr:            "root:demo@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=true",
+			MySQLAddr:            "root:ZAQxsw123@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=true",
 			MySQLMaxOpenConns:    100,
 			MySQLMaxIdleConns:    10,
 			MySQLConnMaxLifetime: time.Second * 60 * 60 * 4, //mysql 默认超时时间为 60*60*8=28800 SetConnMaxLifetime设置为小于数据库超时时间即可
@@ -594,6 +597,11 @@ func (c *Config) ConfigureWithViper(vp *viper.Viper) {
 	c.Minio.SecretAccessKey = c.getString("minio.secretAccessKey", c.Minio.SecretAccessKey)
 	// seaweedfs
 	c.Seaweed.URL = c.getString("seaweed.url", c.Seaweed.URL)
+	// qiniu 七牛云
+	c.Qiniu.URL = c.getString("qiniu.url", c.Qiniu.URL)
+	c.Qiniu.BucketName = c.getString("qiniu.bucketName", c.Qiniu.BucketName)
+	c.Qiniu.AccessKeyID = c.getString("qiniu.accessKeyID", c.Qiniu.AccessKeyID)
+	c.Qiniu.AccessKeySecret = c.getString("qiniu.accessKeySecret", c.Qiniu.AccessKeySecret)
 
 	//#################### 短信服务 ####################
 	c.SMSCode = c.getString("smsCode", c.SMSCode)
@@ -966,6 +974,13 @@ type MinioConfig struct {
 
 type SeaweedConfig struct {
 	URL string // 文件下载上传基地址
+}
+
+type QiniuConfig struct {
+	URL             string
+	BucketName      string
+	AccessKeyID     string
+	AccessKeySecret string
 }
 
 // UnismsConfig unisms短信

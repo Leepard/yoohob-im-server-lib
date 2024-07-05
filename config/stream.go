@@ -3,8 +3,8 @@ package config
 import (
 	"errors"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/network"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/util"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/network"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/util"
 )
 
 // IMStreamStart 消息流开始

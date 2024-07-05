@@ -7,8 +7,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/config"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/register"
+	"github.com/Leepard/yoohob-im-server-lib/config"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/register"
 	"github.com/gocraft/dbr/v2"
 	migrate "github.com/rubenv/sql-migrate"
 )

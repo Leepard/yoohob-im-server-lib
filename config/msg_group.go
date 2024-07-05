@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/common"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/util"
+	"github.com/Leepard/yoohob-im-server-lib/common"
+	"github.com/Leepard/yoohob-im-server-lib/pkg/util"
 )
 
 // SendGroupCreate 发送群创建的消息
